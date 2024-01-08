@@ -1,7 +1,6 @@
 package com.byurin.dice_roller
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.byurin.dice_roller.databinding.ActivityMainBinding
 
@@ -13,8 +12,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.rollBtn.setOnClickListener {
-            Toast.makeText(this, "Dice Rolled", Toast.LENGTH_SHORT).show()
+            rollDice()
         }
 
+    }
+
+    private fun rollDice() {
+        val dice = Dice(6)
+        val diceRoll = dice.roll()
+        binding.resultTv.text = diceRoll.toString()
+    }
+}
+
+class Dice(private val numSides: Int) {
+    fun roll(): Int {
+        return (1..numSides).random()
     }
 }
