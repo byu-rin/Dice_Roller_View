@@ -11,9 +11,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.rollBtn.setOnClickListener {
-            rollDice()
-        }
+        binding.rollBtn.setOnClickListener {rollDice() }
 
     }
 
